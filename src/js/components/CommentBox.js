@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-class CommentBox extends Component {
+export class CommentBox extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             comment: ""
         }
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     handleChange(event) {
         this.setState({
             comment: event.target.value
         });
+    }
+    handleClick() {
+        console.log('test');
+        
     }
     handleSubmit(event) {
         event.preventDefault();
@@ -27,12 +32,13 @@ class CommentBox extends Component {
         });
     }
     render() {
+        
         return ( 
             <form onSubmit={this.handleSubmit} className="row comment-box">
                 <textarea 
                     value={this.state.comment} 
                     onChange={this.handleChange} />
-                <button action="submit">Submit</button>
+                <button onClick={this.handleClick}>Submit</button>
             </form>
         )
     }

@@ -27,12 +27,11 @@ import CommentList from '../../src/js/components/CommentList';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import React from 'react';
-import configureStore from 'redux-mock-store';
+import { mockStore } from '../testConfigWithEnzyme';
 
 describe('CommentList',() => {
     let component;
     let store;
-    let mockStore = configureStore();
 
     beforeEach(() => {
         const state = {comments: ['New Comment', 'Other comment']};
